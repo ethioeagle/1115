@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Dawit",
+    "username": "Dave",
+    "email": "dave@daveby.onmicrosoft.com",
+    "address": {
+      "street": "winterpark",
+      "city": "logenvile",
+      "zipcode": "92998-3874"
+    }
+  }
+  {
+    "id": 2,
+    "name": "Dawit",
+    "username": "Dave",
+    "email": "dave@daveby.onmicrosoft.com",
+    "address": {
+      "street": "winterpark",
+      "city": "logenvile",
+      "zipcode": "92998-3874"
+    }
+  }
+  {
+    "id": 3,
+    "name": "Dawit",
+    "username": "Dave",
+    "email": "dave@daveby.onmicrosoft.com",
+    "address": {
+      "street": "winterpark",
+      "city": "logenvile",
+      "zipcode": "92998-3874"
+    }
+  }
+]

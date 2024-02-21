@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DataSo">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=DESKTOP-KAOQJ2O;Initial Catalog=SMS_NEW</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>70a0d248-a2a2-4c2f-abc8-fc75374decd3</DataSourceID>
+</RptDataSource>

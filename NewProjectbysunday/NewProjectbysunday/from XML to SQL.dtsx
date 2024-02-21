@@ -1,0 +1,2188 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2021 5:39:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KAOQJ2O"
+  DTS:CreatorName="DESKTOP-KAOQJ2O\dawit"
+  DTS:DTSID="{E9F2FD80-DD3D-4DB4-99EF-5B452132B054}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="from XML to SQL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{53267AB0-F080-4921-9591-38992130C683}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KAOQJ2O.SSISProjectnew]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C00CE102-5E13-432E-8A12-CCAECB383A5E}"
+      DTS:ObjectName="DESKTOP-KAOQJ2O.SSISProjectnew">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KAOQJ2O;Initial Catalog=SSISProjectnew;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KAOQJ2O.TMG_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{43051B5B-E117-487B-8933-D21DAD6338DB}"
+      DTS:ObjectName="DESKTOP-KAOQJ2O.TMG_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KAOQJ2O;Initial Catalog=TMG_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KAOQJ2O.TMG_Staging 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7A8EA5C0-0865-4BDD-89AE-45B7C01373F7}"
+      DTS:ObjectName="DESKTOP-KAOQJ2O.TMG_Staging 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-KAOQJ2O;Initial Catalog=TMG_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{054ECBE4-FEF6-4C72-9BF0-E64A27CA1B85}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KAOQJ2O.TMG_Staging 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KAOQJ2O.TMG_Staging 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SSN]"
+                      cachedDataType="ui4"
+                      cachedName="SSN"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SSN]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[SSN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Zip]"
+                      cachedDataType="ui4"
+                      cachedName="Zip"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Zip]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Zip]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sex]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Sex"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sex]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Sex]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ethnicity]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ethnicity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ethnicity]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Ethnicity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Race]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Race"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Race]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Race]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MonthlyIncome]"
+                      cachedDataType="ui2"
+                      cachedName="MonthlyIncome"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthlyIncome]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MonthlyIncome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Bonuses]"
+                      cachedDataType="ui2"
+                      cachedName="Bonuses"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Bonuses]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Bonuses]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Commission]"
+                      cachedDataType="ui1"
+                      cachedName="Commission"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Commission]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Commission]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OtherIncome]"
+                      cachedDataType="ui1"
+                      cachedName="OtherIncome"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtherIncome]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[OtherIncome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Checking]"
+                      cachedDataType="ui2"
+                      cachedName="Checking"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Checking]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Checking]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Savings]"
+                      cachedDataType="ui2"
+                      cachedName="Savings"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Savings]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Savings]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RetirementFund]"
+                      cachedDataType="ui2"
+                      cachedName="RetirementFund"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RetirementFund]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RetirementFund]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MutualFund]"
+                      cachedDataType="ui2"
+                      cachedName="MutualFund"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MutualFund]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MutualFund]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoanAmount]"
+                      cachedDataType="ui2"
+                      cachedName="LoanAmount"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoanAmount]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[LoanAmount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditCardAuthorization]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CreditCardAuthorization"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardAuthorization]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[CreditCardAuthorization]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RealEstateAgentName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RealEstateAgentName"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RealEstateAgentName]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RealEstateAgentPhone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RealEstateAgentPhone"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RealEstateAgentPhone]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentPhone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RealEstateAgentEmail]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RealEstateAgentEmail"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RealEstateAgentEmail]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentEmail]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Loan_Id]"
+                      cachedDataType="ui1"
+                      cachedName="Loan_Id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Loan_ID]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Loan_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Property_Id]"
+                      cachedDataType="ui2"
+                      cachedName="Property_Id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_ID]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Property_Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Borrower FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Borrower FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Borrower LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Borrower LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Borrower Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Borrower Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SSN]"
+                      dataType="i4"
+                      name="SSN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Home Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Home Phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cell Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cell Phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Marital Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Marital Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date of Birth]"
+                      dataType="dbTimeStamp"
+                      name="Date of Birth" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Current Street Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Current Street Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Zip]"
+                      dataType="i4"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YearsAtThisAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearsAtThisAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MonthlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MonthlyIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Bonuses]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Bonuses" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Commission]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Commission" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OtherIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OtherIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rent or Own]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Rent or Own" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Purpose of Loan]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Purpose of Loan" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property Usage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property Usage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoanAmount]"
+                      dataType="i4"
+                      name="LoanAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Purchase Price]"
+                      dataType="i4"
+                      name="Purchase Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Number of Units]"
+                      dataType="i4"
+                      name="Number of Units" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property Zip]"
+                      dataType="i4"
+                      name="Property Zip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sex]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sex" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ethnicity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ethnicity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Race]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Race" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Co-Borrower FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Co-Borrower FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Co-Borrower LasttName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Co-Borrower LasttName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Co-Borrower Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Co-Borrower Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardAuthorization]"
+                      dataType="bool"
+                      name="CreditCardAuthorization" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Checking]"
+                      dataType="i4"
+                      name="Checking" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Savings]"
+                      dataType="i4"
+                      name="Savings" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RetirementFund]"
+                      dataType="i4"
+                      name="RetirementFund" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MutualFund]"
+                      dataType="i4"
+                      name="MutualFund" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Referral]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Referral" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RealEstateAgentName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RealEstateAgentName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RealEstateAgentPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RealEstateAgentPhone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RealEstateAgentEmail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RealEstateAgentEmail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Loan_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Loan_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ApplDate]"
+                      dataType="dbDate"
+                      name="ApplDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoanDate]"
+                      dataType="dbDate"
+                      name="LoanDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Co-Borrower SSN]"
+                      dataType="i4"
+                      name="Co-Borrower SSN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\XML Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+              name="XML Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.String"
+                  description="The XML data used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLData">C:\YAYOBE(SSIS)\SSIS LIVE PROJ\Data sources\Zillow data source.xml</property>
+                <property
+                  dataType="System.String"
+                  description="The variable used by the XML source adapter to specify XML data."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how the XML source adapter gets XML data."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The XML schema definition used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">C:\YAYOBE(SSIS)\SSIS LIVE PROJ\Data sources\Zillow data source.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Identifies whether or not to use inline schema."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how XML integer types are mapped."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\XML Source.Outputs[Stageing]"
+                  name="Stageing">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">Stageing</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[SSN]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[SSN]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[SSN]"
+                      name="SSN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[BorrowerFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[BorrowerFirstName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[BorrowerFirstName]"
+                      name="BorrowerFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[BorrowerLastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[BorrowerLastName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[BorrowerLastName]"
+                      name="BorrowerLastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[BorrowerEmail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[BorrowerEmail]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[BorrowerEmail]"
+                      name="BorrowerEmail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[HomePhone]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[HomePhone]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[HomePhone]"
+                      name="HomePhone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[CellPhone]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[CellPhone]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[CellPhone]"
+                      name="CellPhone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[MaritalStatus]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MaritalStatus]"
+                      name="MaritalStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[DateofBirth]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[DateofBirth]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[DateofBirth]"
+                      name="DateofBirth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[CurrentCityStreetAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[CurrentCityStreetAddress]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[CurrentCityStreetAddress]"
+                      name="CurrentCityStreetAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[city]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[State]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Zip]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Zip]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Zip]"
+                      name="Zip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[YearsAtThisAdress]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[YearsAtThisAdress]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[YearsAtThisAdress]"
+                      name="YearsAtThisAdress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Sex]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Sex]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Sex]"
+                      name="Sex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Ethnicity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Ethnicity]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Ethnicity]"
+                      name="Ethnicity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Race]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Race]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Race]"
+                      name="Race"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MonthlyIncome]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[MonthlyIncome]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MonthlyIncome]"
+                      name="MonthlyIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Bonuses]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Bonuses]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Bonuses]"
+                      name="Bonuses"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Commission]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Commission]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Commission]"
+                      name="Commission"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[OtherIncome]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[OtherIncome]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[OtherIncome]"
+                      name="OtherIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RentorOwn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RentorOwn]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RentorOwn]"
+                      name="RentorOwn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Checking]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Checking]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Checking]"
+                      name="Checking"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Savings]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Savings]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Savings]"
+                      name="Savings"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RetirementFund]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RetirementFund]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RetirementFund]"
+                      name="RetirementFund"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MutualFund]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[MutualFund]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[MutualFund]"
+                      name="MutualFund"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PurposeofLoan]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PurposeofLoan]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PurposeofLoan]"
+                      name="PurposeofLoan"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[LoanAmount]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[LoanAmount]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[LoanAmount]"
+                      name="LoanAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PurchasePrice]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PurchasePrice]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PurchasePrice]"
+                      name="PurchasePrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[NumberofUnits]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[NumberofUnits]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[NumberofUnits]"
+                      name="NumberofUnits"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[CreditCardAuthorization]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[CreditCardAuthorization]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[CreditCardAuthorization]"
+                      name="CreditCardAuthorization"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Refferal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Refferal]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Refferal]"
+                      name="Refferal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyUsage]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyUsage]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyUsage]"
+                      name="PropertyUsage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyCity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyCity]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyCity]"
+                      name="PropertyCity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyState]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyState]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyState]"
+                      name="PropertyState"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyZip]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyZip]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[PropertyZip]"
+                      name="PropertyZip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RealEstateAgentName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentName]"
+                      name="RealEstateAgentName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentPhone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RealEstateAgentPhone]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentPhone]"
+                      name="RealEstateAgentPhone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentEmail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RealEstateAgentEmail]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[RealEstateAgentEmail]"
+                      name="RealEstateAgentEmail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerFirstName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerFirstName]"
+                      name="Co-BorrowerFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerLasttName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerLasttName]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerLasttName]"
+                      name="Co-BorrowerLasttName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerEmail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerEmail]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerEmail]"
+                      name="Co-BorrowerEmail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Loan_Id]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Loan_Id]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Loan_Id]"
+                      name="Loan_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Property_Id]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Property_Id]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Property_Id]"
+                      name="Property_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerSSN]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerSSN]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Co-BorrowerSSN]"
+                      name="Co-BorrowerSSN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Application_Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Application_Date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Application_Date]"
+                      name="Application_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Loan_Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Loan_Date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing].Columns[Loan_Date]"
+                      name="Loan_Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[SSN]"
+                      dataType="ui4"
+                      name="SSN">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[BorrowerFirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="BorrowerFirstName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[BorrowerLastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="BorrowerLastName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[BorrowerEmail]"
+                      dataType="wstr"
+                      length="255"
+                      name="BorrowerEmail">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[HomePhone]"
+                      dataType="ui4"
+                      name="HomePhone">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[CellPhone]"
+                      dataType="ui4"
+                      name="CellPhone">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="255"
+                      name="MaritalStatus">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[DateofBirth]"
+                      dataType="wstr"
+                      length="255"
+                      name="DateofBirth">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[CurrentCityStreetAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="CurrentCityStreetAddress">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Zip]"
+                      dataType="ui4"
+                      name="Zip">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[YearsAtThisAdress]"
+                      dataType="ui1"
+                      name="YearsAtThisAdress">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Sex]"
+                      dataType="wstr"
+                      length="255"
+                      name="Sex">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Ethnicity]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ethnicity">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Race]"
+                      dataType="wstr"
+                      length="255"
+                      name="Race">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[MonthlyIncome]"
+                      dataType="ui2"
+                      name="MonthlyIncome">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Bonuses]"
+                      dataType="ui2"
+                      name="Bonuses">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Commission]"
+                      dataType="ui1"
+                      name="Commission">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[OtherIncome]"
+                      dataType="ui1"
+                      name="OtherIncome">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RentorOwn]"
+                      dataType="wstr"
+                      length="255"
+                      name="RentorOwn">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Checking]"
+                      dataType="ui2"
+                      name="Checking">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Savings]"
+                      dataType="ui2"
+                      name="Savings">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RetirementFund]"
+                      dataType="ui2"
+                      name="RetirementFund">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[MutualFund]"
+                      dataType="ui2"
+                      name="MutualFund">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PurposeofLoan]"
+                      dataType="wstr"
+                      length="255"
+                      name="PurposeofLoan">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[LoanAmount]"
+                      dataType="ui2"
+                      name="LoanAmount">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PurchasePrice]"
+                      dataType="ui2"
+                      name="PurchasePrice">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[NumberofUnits]"
+                      dataType="ui1"
+                      name="NumberofUnits">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[CreditCardAuthorization]"
+                      dataType="wstr"
+                      length="255"
+                      name="CreditCardAuthorization">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Refferal]"
+                      dataType="wstr"
+                      length="255"
+                      name="Refferal">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyUsage]"
+                      dataType="wstr"
+                      length="255"
+                      name="PropertyUsage">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyCity]"
+                      dataType="wstr"
+                      length="255"
+                      name="PropertyCity">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyState]"
+                      dataType="wstr"
+                      length="255"
+                      name="PropertyState">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[PropertyZip]"
+                      dataType="ui4"
+                      name="PropertyZip">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RealEstateAgentName]"
+                      dataType="wstr"
+                      length="255"
+                      name="RealEstateAgentName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RealEstateAgentPhone]"
+                      dataType="wstr"
+                      length="255"
+                      name="RealEstateAgentPhone">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[RealEstateAgentEmail]"
+                      dataType="wstr"
+                      length="255"
+                      name="RealEstateAgentEmail">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerFirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="Co-BorrowerFirstName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerLasttName]"
+                      dataType="wstr"
+                      length="255"
+                      name="Co-BorrowerLasttName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerEmail]"
+                      dataType="wstr"
+                      length="255"
+                      name="Co-BorrowerEmail">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Loan_Id]"
+                      dataType="ui1"
+                      name="Loan_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Property_Id]"
+                      dataType="ui2"
+                      name="Property_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Co-BorrowerSSN]"
+                      dataType="ui4"
+                      name="Co-BorrowerSSN">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt32</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Application_Date]"
+                      dataType="wstr"
+                      length="255"
+                      name="Application_Date">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing].ExternalColumns[Loan_Date]"
+                      dataType="wstr"
+                      length="255"
+                      name="Loan_Date">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output]"
+                  isErrorOut="true"
+                  name="Stageing Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">Stageing</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[SSN]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[SSN]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[SSN]"
+                      name="SSN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[BorrowerFirstName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[BorrowerFirstName]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[BorrowerFirstName]"
+                      name="BorrowerFirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[BorrowerLastName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[BorrowerLastName]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[BorrowerLastName]"
+                      name="BorrowerLastName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[BorrowerEmail]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[BorrowerEmail]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[BorrowerEmail]"
+                      name="BorrowerEmail" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[HomePhone]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[HomePhone]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[HomePhone]"
+                      name="HomePhone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[CellPhone]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[CellPhone]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[CellPhone]"
+                      name="CellPhone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[MaritalStatus]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[MaritalStatus]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[MaritalStatus]"
+                      name="MaritalStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[DateofBirth]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[DateofBirth]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[DateofBirth]"
+                      name="DateofBirth" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[CurrentCityStreetAddress]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[CurrentCityStreetAddress]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[CurrentCityStreetAddress]"
+                      name="CurrentCityStreetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[city]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[city]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[State]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[State]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Zip]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Zip]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Zip]"
+                      name="Zip" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[YearsAtThisAdress]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[YearsAtThisAdress]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[YearsAtThisAdress]"
+                      name="YearsAtThisAdress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Sex]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Sex]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Sex]"
+                      name="Sex" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Ethnicity]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Ethnicity]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Ethnicity]"
+                      name="Ethnicity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Race]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Race]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Race]"
+                      name="Race" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[MonthlyIncome]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[MonthlyIncome]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[MonthlyIncome]"
+                      name="MonthlyIncome" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Bonuses]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Bonuses]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Bonuses]"
+                      name="Bonuses" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Commission]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Commission]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Commission]"
+                      name="Commission" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[OtherIncome]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[OtherIncome]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[OtherIncome]"
+                      name="OtherIncome" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RentorOwn]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RentorOwn]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RentorOwn]"
+                      name="RentorOwn" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Checking]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Checking]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Checking]"
+                      name="Checking" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Savings]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Savings]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Savings]"
+                      name="Savings" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RetirementFund]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RetirementFund]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RetirementFund]"
+                      name="RetirementFund" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[MutualFund]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[MutualFund]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[MutualFund]"
+                      name="MutualFund" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PurposeofLoan]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PurposeofLoan]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PurposeofLoan]"
+                      name="PurposeofLoan" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[LoanAmount]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[LoanAmount]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[LoanAmount]"
+                      name="LoanAmount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PurchasePrice]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PurchasePrice]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PurchasePrice]"
+                      name="PurchasePrice" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[NumberofUnits]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[NumberofUnits]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[NumberofUnits]"
+                      name="NumberofUnits" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[CreditCardAuthorization]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[CreditCardAuthorization]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[CreditCardAuthorization]"
+                      name="CreditCardAuthorization" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Refferal]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Refferal]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Refferal]"
+                      name="Refferal" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyUsage]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyUsage]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyUsage]"
+                      name="PropertyUsage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyCity]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyCity]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyCity]"
+                      name="PropertyCity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyState]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyState]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyState]"
+                      name="PropertyState" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyZip]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyZip]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[PropertyZip]"
+                      name="PropertyZip" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RealEstateAgentName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RealEstateAgentName]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RealEstateAgentName]"
+                      name="RealEstateAgentName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RealEstateAgentPhone]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RealEstateAgentPhone]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RealEstateAgentPhone]"
+                      name="RealEstateAgentPhone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RealEstateAgentEmail]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RealEstateAgentEmail]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[RealEstateAgentEmail]"
+                      name="RealEstateAgentEmail" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerFirstName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerFirstName]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerFirstName]"
+                      name="Co-BorrowerFirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerLasttName]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerLasttName]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerLasttName]"
+                      name="Co-BorrowerLasttName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerEmail]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerEmail]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerEmail]"
+                      name="Co-BorrowerEmail" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Loan_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Loan_Id]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Loan_Id]"
+                      name="Loan_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Property_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Property_Id]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Property_Id]"
+                      name="Property_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerSSN]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerSSN]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Co-BorrowerSSN]"
+                      name="Co-BorrowerSSN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Application_Date]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Application_Date]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Application_Date]"
+                      name="Application_Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Loan_Date]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Loan_Date]"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[Loan_Date]"
+                      name="Loan_Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[SSN]"
+                      dataType="nText"
+                      name="SSN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[BorrowerFirstName]"
+                      dataType="nText"
+                      name="BorrowerFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[BorrowerLastName]"
+                      dataType="nText"
+                      name="BorrowerLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[BorrowerEmail]"
+                      dataType="nText"
+                      name="BorrowerEmail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[HomePhone]"
+                      dataType="nText"
+                      name="HomePhone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[CellPhone]"
+                      dataType="nText"
+                      name="CellPhone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[MaritalStatus]"
+                      dataType="nText"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[DateofBirth]"
+                      dataType="nText"
+                      name="DateofBirth" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[CurrentCityStreetAddress]"
+                      dataType="nText"
+                      name="CurrentCityStreetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[city]"
+                      dataType="nText"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[State]"
+                      dataType="nText"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Zip]"
+                      dataType="nText"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[YearsAtThisAdress]"
+                      dataType="nText"
+                      name="YearsAtThisAdress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Sex]"
+                      dataType="nText"
+                      name="Sex" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Ethnicity]"
+                      dataType="nText"
+                      name="Ethnicity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Race]"
+                      dataType="nText"
+                      name="Race" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[MonthlyIncome]"
+                      dataType="nText"
+                      name="MonthlyIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Bonuses]"
+                      dataType="nText"
+                      name="Bonuses" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Commission]"
+                      dataType="nText"
+                      name="Commission" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[OtherIncome]"
+                      dataType="nText"
+                      name="OtherIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RentorOwn]"
+                      dataType="nText"
+                      name="RentorOwn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Checking]"
+                      dataType="nText"
+                      name="Checking" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Savings]"
+                      dataType="nText"
+                      name="Savings" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RetirementFund]"
+                      dataType="nText"
+                      name="RetirementFund" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[MutualFund]"
+                      dataType="nText"
+                      name="MutualFund" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PurposeofLoan]"
+                      dataType="nText"
+                      name="PurposeofLoan" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[LoanAmount]"
+                      dataType="nText"
+                      name="LoanAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PurchasePrice]"
+                      dataType="nText"
+                      name="PurchasePrice" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[NumberofUnits]"
+                      dataType="nText"
+                      name="NumberofUnits" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[CreditCardAuthorization]"
+                      dataType="nText"
+                      name="CreditCardAuthorization" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Refferal]"
+                      dataType="nText"
+                      name="Refferal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyUsage]"
+                      dataType="nText"
+                      name="PropertyUsage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyCity]"
+                      dataType="nText"
+                      name="PropertyCity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyState]"
+                      dataType="nText"
+                      name="PropertyState" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[PropertyZip]"
+                      dataType="nText"
+                      name="PropertyZip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RealEstateAgentName]"
+                      dataType="nText"
+                      name="RealEstateAgentName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RealEstateAgentPhone]"
+                      dataType="nText"
+                      name="RealEstateAgentPhone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[RealEstateAgentEmail]"
+                      dataType="nText"
+                      name="RealEstateAgentEmail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerFirstName]"
+                      dataType="nText"
+                      name="Co-BorrowerFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerLasttName]"
+                      dataType="nText"
+                      name="Co-BorrowerLasttName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerEmail]"
+                      dataType="nText"
+                      name="Co-BorrowerEmail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Loan_Id]"
+                      dataType="nText"
+                      name="Loan_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Property_Id]"
+                      dataType="nText"
+                      name="Property_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Co-BorrowerSSN]"
+                      dataType="nText"
+                      name="Co-BorrowerSSN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Application_Date]"
+                      dataType="nText"
+                      name="Application_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\XML Source.Outputs[Stageing Error Output].ExternalColumns[Loan_Date]"
+                      dataType="nText"
+                      name="Loan_Date" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Stageing]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Stageing"
+              startId="Package\Data Flow Task\XML Source.Outputs[Stageing]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36F2D096-656D-4BB3-8919-FE1798DF0D6C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C00CE102-5E13-432E-8A12-CCAECB383A5E}"
+          SQLTask:SqlStatementSource="truncate table XMLData" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7CEEB39E-9E00-45CE-B561-5516C58DC06C}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="233,198" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="297,30" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="378.5,72">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-70,126"
+              Start="0,0"
+              End="-70,118.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59"
+                    Point2="0,63"
+                    Point3="-4,63" />
+                  <mssgle:LineSegment
+                    End="-66,63" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-66,63"
+                    Point2="-70,63"
+                    Point3="-70,67" />
+                  <mssgle:LineSegment
+                    End="-70,118.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Data Flow Task\XML Source"
+          TopLeft="264,102" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="344,252" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Stageing]"
+          TopLeft="331,144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.5,108"
+              Start="0,0"
+              End="98.5,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50"
+                    Point2="0,54"
+                    Point3="4,54" />
+                  <mssgle:LineSegment
+                    End="94.5,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.5,54"
+                    Point2="98.5,54"
+                    Point3="98.5,58" />
+                  <mssgle:LineSegment
+                    End="98.5,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

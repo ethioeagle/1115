@@ -1,0 +1,13 @@
+{
+  "@odata.context": "http://wabi-east-asia-a-primary-redirect.analysis.windows.net/v1.0/myorg/$metadata#datasets/$entity",
+  "id": "07856f42-0122-4dbf-b86f-7026262f6e2f",
+  "name": "Power BI Exercise 1",
+  "configuredBy": "daf@dafby.onmicrosoft.com",
+  "isRefreshable": true,
+  "isEffectiveIdentityRequired": false,
+  "isEffectiveIdentityRolesRequired": false,
+  "isOnPremGatewayRequired": true,
+  "targetStorageMode": "Abf",
+  "createReportEmbedURL": "https://app.powerbi.com/reportEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUVBU1QtQVNJQS1BLVBSSU1BUlktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQiLCJlbWJlZEZlYXR1cmVzIjp7Im1vZGVybkVtYmVkIjp0cnVlfX0%3d",
+  "qnaEmbedURL": "https://app.powerbi.com/qnaEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUVBU1QtQVNJQS1BLVBSSU1BUlktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQiLCJlbWJlZEZlYXR1cmVzIjp7Im1vZGVybkVtYmVkIjp0cnVlfX0%3d"
+}

@@ -1,0 +1,13 @@
+StudentId,FName,LName,DOB,DepartmentId,Gender
+10,Hiroko,Inga,1979-01-01 00:00:00,4,M
+11,Miranda,Flynn,1980-01-01 00:00:00,4,F
+12,Orla,Oren,1981-01-01 00:00:00,4,M
+24,Boris,Kadeem,1993-01-01 00:00:00,4,M
+40,Francesca,Sopoline,2009-01-01 00:00:00,4,M
+41,Autumn,Remedios,2010-01-01 00:00:00,4,F
+42,Amity,Destiny,2011-01-01 00:00:00,4,M
+54,Berk,Rana,1981-01-01 00:00:00,4,M
+70,Sade,Jason,1997-01-01 00:00:00,4,M
+71,Yoseph,Burke,1998-01-01 00:00:00,4,M
+72,Isaiah,Yetta,1999-01-01 00:00:00,4,F
+84,Ivor,Iliana,2011-01-01 00:00:00,4,M

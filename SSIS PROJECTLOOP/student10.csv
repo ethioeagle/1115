@@ -1,0 +1,4 @@
+StudentId,FName,LName,DOB,DepartmentId,Gender
+19,Zachery,Wyatt,1988-01-01 00:00:00,10,M
+49,Denise,Ray,1976-01-01 00:00:00,10,M
+79,Eden,Amal,2006-01-01 00:00:00,10,F

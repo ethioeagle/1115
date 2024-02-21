@@ -1,0 +1,10 @@
+StudentId,FName,LName,DOB,DepartmentId,Gender
+21,Salvador,Merritt,1990-01-01 00:00:00,12,M
+29,Wallace,Brittany,1998-01-01 00:00:00,12,M
+30,Constance,Igor,1999-01-01 00:00:00,12,F
+51,Olga,Selma,1978-01-01 00:00:00,12,F
+59,Dorian,Alexis,1986-01-01 00:00:00,12,M
+60,Rama,Chaim,1987-01-01 00:00:00,12,F
+81,Stephanie,Gloria,2008-01-01 00:00:00,12,F
+89,Xena,Alvin,1974-01-01 00:00:00,12,M
+90,Melodie,Scarlett,1975-01-01 00:00:00,12,F

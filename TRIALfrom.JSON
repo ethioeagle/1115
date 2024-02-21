@@ -1,0 +1,28 @@
+
+select * from T.1	
+where name not in (select name from T2 )	
+
+select * from T.1 a
+Left join T.2 b
+on a.name = b.name
+where T2.name is null
+
+Jake.test@gmail.com
+Virat.kohli@yahoo.com
+
+
+
+gmail
+yahoo
+
+
+charindex
+
+substring
+dawit 
+fante 
+ dawit + '  ' + fante
+ 
+ 
+ union 
+ union all

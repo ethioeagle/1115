@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="studentdata">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=DESKTOP-KAOQJ2O;Initial Catalog=SMS_NEW</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>27b3a73e-1479-411a-955d-51c61f6e5c79</DataSourceID>
+</RptDataSource>

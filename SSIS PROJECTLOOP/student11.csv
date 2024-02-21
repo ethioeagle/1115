@@ -1,0 +1,4 @@
+StudentId,FName,LName,DOB,DepartmentId,Gender
+20,Zia,Vincent,1989-01-01 00:00:00,11,F
+50,Ivan,Marcia,1977-01-01 00:00:00,11,M
+80,Grant,Graiden,2007-01-01 00:00:00,11,M

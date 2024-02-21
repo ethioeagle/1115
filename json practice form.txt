@@ -1,0 +1,49 @@
+select max(salary) from employee
+
+select max(salary) from employee
+where salary not in (select max(salary) from employee)
+
+select len(Fname) from employee
+
+sql> SELECT * FROM runners;
++----+--------------+
+| id | name         |
++----+--------------+
+|  1 | John Doe     |
+|  2 | Jane Doe     |
+|  3 | Alice Jones  |
+|  4 | Bobby Louis  |
+|  5 | Lisa Romero  |
++----+--------------+
+
+sql> SELECT * FROM races;
++----+----------------+-----------+
+| id | event          | winner_id |
++----+----------------+-----------+
+|  1 | 100 meter dash |  2        |
+|  2 | 500 meter dash |  3        |
+|  3 | cross-country  |  2        |
+|  4 | triathalon     |  NULL     |
++----+----------------+-----------+
+What will be the result of the query below?
+
+SELECT * FROM runners WHERE id NOT IN (SELECT winner_id FROM races)
+
+select * from Table_A
+select * from Table_B
+
+/*
+select name from Table_A
+where name not in (select name from Table_B)
+union 
+select name from Table_B
+where name not in (select name from Table_A)
+
+select Age, SSN from [dbo].[Employee]
+where Age > 18
+
+update Employee
+set position = 'tester'
+where id = 1
+
+*/

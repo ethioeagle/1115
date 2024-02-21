@@ -1,0 +1,22 @@
+Task 1:	How to Pivot the same above Sales Data and report Monthly Sales for 2015, 2016 & 2017?			2017
+	DUPLICATE SOURCE DATASET
+	PIVOT 2015
+	
+	DUPLICATE SOURCE DATASET
+	PIVOT 2016
+
+	DUPLICATE SOURCE DATASET
+	PIVOT 2017
+
+	FINALY, COMBINE (APPEND) ABOVE THREE RESULTS
+
+
+Task 2:	What is the relation between Group By and Pivot?
+	Your answer would be in this format:
+	Pivot 	=	Group By  + 	AGGREGATE + 	PROMOTE HEADER + TRANSPOSE
+
+
+Task 3:	What are the pre-conditions or precautions to consider when working with PIVOT ?
+	1. No Duplicates
+	2. Only one Aggregate Field
+	3. Only one Pivot Field	
